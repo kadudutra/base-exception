@@ -7,7 +7,14 @@ namespace Exception;
 use Exception;
 use Exception\DTO\ErrorResponse;
 
-class BaseException extends Exception
+/**
+ * BaseException makes it possible to custom create and handle exceptions.
+ *
+ * @copyright (c) 2019.
+ * @link <https://github.com/GustavoSantosBr/base-exception.git>
+ * @author Gustavo Santos <gustavo.freze@gmail.com>
+ */
+class BaseException extends Exception implements BaseExceptionInterface
 {
     /**
      * @var null|string
@@ -53,7 +60,7 @@ class BaseException extends Exception
      * Create custom error response
      * @return array
      */
-    private function createCustomError(): array
+    public function createCustomError(): array
     {
         $this->countError = (!empty($this->arrayMessageError) ? count($this->arrayMessageError) : 0);
         if ($this->countError > 0) {
@@ -70,7 +77,7 @@ class BaseException extends Exception
      * @param $messageError
      * @return ErrorResponse
      */
-    private function errorResponse($messageError): ErrorResponse
+    public function errorResponse($messageError): ErrorResponse
     {
         $errorResponse = new ErrorResponse();
         $errorResponse->setMessageError($messageError);
