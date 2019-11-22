@@ -1,0 +1,29 @@
+{
+    "name": "gustavosantos/base-exception",
+    "description": "BaseException makes it possible to custom create and handle exceptions.",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "keywords": [
+        "exception",
+        "custom exception",
+        "psr",
+        "psr-4"
+    ],
+    "authors": [
+        {
+            "name": "Gustavo Santos",
+            "email": "gustavo.freze@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.3.6",
+        "jms/serializer": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Exception\\": "Exception/src/"
+        }
+    }
+}
